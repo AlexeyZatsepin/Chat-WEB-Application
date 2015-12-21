@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="http://vladmaxi.net/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+
+  <form method="post" action="" class="login">
+      {% csrf_token %}
+    <p>
+      <label for="login">Логин:</label>
+      <input type="text" name="username" id="login">
+    </p>
+
+    <p>
+      <label for="password">Пароль:</label>
+      <input type="password" name="password" id="password">
+    </p>
+
+    <p class="login-submit">
+      <button type="submit" class="login-button">Войти</button>
+    </p>
+
+    <p class="forgot-password"><a href="/register/">Зарегистрироваться</a></p>
+  </form>
+</body>
+</html>

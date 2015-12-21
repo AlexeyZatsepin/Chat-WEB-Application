@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% load imagekit %}
+{% for obj in chat %}
+    {% if obj.user == request.user %}
+        <li class="text-right list-group-item">{{ obj.message }}</li>
+    {% else %}
+       {% with obj.user.id as id %}
+           <li class="text-left list-group-item"><small>{{ obj.user }}:</small>{# thumbnail '40x40' obj.image.path #}{{ obj.message }}</li>
+       {% endwith %}
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>
+{% endfor %}
